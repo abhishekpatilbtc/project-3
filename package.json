@@ -1,0 +1,19 @@
+{
+  "name": "lending-app",
+  "version": "1.0.0",
+  "description": "P2P Lending/Borrowing",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhishekpatilbtc/project-3.git"
+  },
+  "author": "Abhishek Patil, Alla Akiyeva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhishekpatilbtc/project-3/issues"
+  },
+  "homepage": "https://github.com/abhishekpatilbtc/project-3#readme"
+}
