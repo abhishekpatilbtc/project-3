@@ -4,7 +4,13 @@
   "description": "P2P Lending/Borrowing",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -15,5 +21,19 @@
   "bugs": {
     "url": "https://github.com/abhishekpatilbtc/project-3/issues"
   },
-  "homepage": "https://github.com/abhishekpatilbtc/project-3#readme"
+  "homepage": "https://github.com/abhishekpatilbtc/project-3#readme",
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.7"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.6.7",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^3.0.1",
+    "axios": "^0.18.0",
+    "if-env": "^1.0.4"
+  }
 }
