@@ -1,0 +1,20 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.card .card-image {
+    width: 20%;
+}
+
+.card .card-image img {
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#request {
+    margin-right: 15px;
+}

@@ -1,0 +1,22 @@
+.card.large {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+figure {
+    width: 440px;
+    overflow: hidden;
+    margin: 0;
+}
+
+figure img {
+    display: block;
+    width: 130%;
+    float: left;
+}
+
+#text {
+    float: left;
+}
