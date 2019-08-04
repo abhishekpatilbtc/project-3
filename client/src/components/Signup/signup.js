@@ -50,7 +50,7 @@ function Signup () {
               <button className="btn-large waves-effect waves-dark" style={{width: '100%'}}>Submit</button>
             </div><br />
 
-            <span>Already have an account? <a href="..Login/login.js">Log in</a></span>
+            <span>Already have an account? <a href="/login">Log in</a></span>
 
           </div>
         </div>

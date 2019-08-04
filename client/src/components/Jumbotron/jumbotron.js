@@ -12,7 +12,7 @@ function Jumbotron() {
             <div id="text">
               <span className="card-title">Goodwill Lending</span>
               <p>Borrow and lend money with a peace of mind</p><br />
-              <a className="waves-effect waves-light btn" href="../components/Login/login">Sign up with Facebook</a>
+              <a className="waves-effect waves-light btn" href="/signup">Sign up</a>
             </div>
           </div>
         </div>
