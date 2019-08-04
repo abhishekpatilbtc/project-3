@@ -5,6 +5,11 @@ function Add () {
         <div className="container">
         <div className="card">
           <div className="card-content">
+            <div className="card-action teal lighten-1 white-text" style={{paddingTop: '0', paddingBottom: '5px'}}>
+              <h4>Add a Friend</h4>
+            </div><br />
+
+
             <h5 style={{color: 'lightgray'}}>Search to add a new friend</h5>
             <nav>
               <div className="nav-wrapper">

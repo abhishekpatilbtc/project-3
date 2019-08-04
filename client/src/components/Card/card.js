@@ -14,7 +14,7 @@ function Card() {
                         <p>Total balance: - $25</p>
                     </div>
                     <div className="card-action">
-                        <a className="waves-effect waves-light btn" id="request" href="../components/Request_Send/request_send">Request</a>
+                        <a className="waves-effect waves-light btn" id="request" href="/request">Request</a>
                         <a className="waves-effect waves-light btn" href="../components/Request_Send/request_send">Send</a>
                     </div>
                 </div>

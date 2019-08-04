@@ -31,6 +31,8 @@ function Login () {
                 <button className="btn-large waves-effect waves-dark" style={{width: '100%'}}>Log in</button>
               </div><br />
 
+              <span>Don't have an account? <a href="/signup">Sign up</a></span>
+
             </div>
           </div>
         </div>

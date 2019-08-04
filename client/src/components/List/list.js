@@ -3,7 +3,7 @@ import React from "react";
 function List() {
     return (
         <ul className="collection">
-        <a className="btn-floating btn-small waves-effect waves-light red" href="../Add/add"><i className="material-icons">add</i></a>
+        <a className="btn-floating btn-small waves-effect waves-light red" href="/add"><i className="material-icons">add</i></a>
         <li className="collection-item avatar">
           {/* <img src="images/yuna.jpg" alt="" class="circle"> */}
           <i className="material-icons circle">account_circle</i>
