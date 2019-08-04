@@ -1,6 +1,6 @@
 const db = require("../models");
-const router = require('express').Router()
-
+const path = require("path");
+const router = require("express").Router();
 
 router.post('/', function(req, res) {
     const { first, last, username, email, password } = req.body;

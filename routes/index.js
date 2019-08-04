@@ -1,11 +1,15 @@
+const path = require("path");
 const router = require("express").Router();
-const authRoute = require('../controllers/authController')
-// const login = require('../controllers/login')
+const apiRoutes = require("./api");
 
 // API Routes
-router.use("/api/auth", authRoute);
+router.use("/api", apiRoutes);
 
-//Passport Routes
-// router.use("/login", login);
+
+// If no API routes are hit, send the React app
+// router.use(function(req, res) {
+//     res.sendFile(path.join(__dirname, "../client/public/index.html"));
+//   });
+  
 
 module.exports = router;

@@ -3,9 +3,8 @@ const db = require("./models")
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
-var passport = require('passport'), LocalStrategy = require('passport-local').Strategy;
+const passport = require('passport'), LocalStrategy = require('passport-local').Strategy;
 const PORT = process.env.PORT || 3001;
-
 // Configure body parsing for AJAX requests
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -58,8 +57,6 @@ passport.deserializeUser(function(id, cb) {
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-
 //Login API
 app.post('/login', 
   passport.authenticate('local', { failureRedirect: '/login' }),
@@ -69,8 +66,10 @@ app.post('/login',
 
 app.get('/logout', function(req, res) {
   req.logout()
-  res.send('logged out successfully')
+  res.send('Logged out successfully')
 })
+
+
 // Start the API server
 app.listen(PORT, () =>
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
