@@ -5,10 +5,10 @@ const registerRoutes = require("./register");
 // const authenticationRoutes = require("./authentication")
 
 // User routes
-router.use("/user", userRoutes);
+router.use("/users", userRoutes);
 
 // Transaction routes
-router.use("/transaction", transactionRoutes);
+router.use("/transactions", transactionRoutes);
 
 //Registration
 router.use("/register", registerRoutes);
