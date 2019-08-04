@@ -56,6 +56,10 @@ passport.deserializeUser(function(id, cb) {
 // session.
 app.use(passport.initialize());
 app.use(passport.session());
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 
 //Login API
 app.post('/login', 

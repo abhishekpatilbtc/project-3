@@ -17,8 +17,8 @@ class Signup extends Component {
   handleClick(event) {
     const apiBaseUrl = "http://localhost:3001/api";
     const payload = {
-      "first name": this.state.first_name,
-      "last name": this.state.last_name,
+      "first": this.state.first_name,
+      "last": this.state.last_name,
       "email": this.state.email,
       "username": this.state.username,
       "password": this.state.password
@@ -26,7 +26,6 @@ class Signup extends Component {
     console.log(payload);
     axios.post(apiBaseUrl + '/register', payload)
     .then(function (res) {
-      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
       console.log(res);
       // if (res.data.code === 200) {
       //   console.log ("Registration successfull");
