@@ -11,7 +11,7 @@ class Login extends Component {
   }
 
   handleClick(event) {
-    const apiBaseUrl = "http://localhost:3000/api";
+    const apiBaseUrl = "http://localhost:3001";
     const payload = {
       "username": this.state.username,
       "password": this.state.password
@@ -19,20 +19,20 @@ class Login extends Component {
     axios.post(apiBaseUrl + '/login', payload)
     .then(function (res) {
       console.log(res);
-      if (res.data.code === 200) {
-        console.log("Login successful");
-        const uploadScreen = [];
-        uploadScreen.push(<uploadScreen appContext={this.props.appContext}/>)
-        this.props.appContext.setState({loginPage: [], uploadScreen: uploadScreen})
-      }
-      else if (res.data.code === 204) {
-        console.log("Username and password do not match");
-        alert("Username and password do not match")
-      }
-      else {
-        console.log("Username does not exist");
-        alert("Username does not exist");
-      }
+      // if (res.data.code === 200) {
+      //   console.log("Login successful");
+      //   const uploadScreen = [];
+      //   uploadScreen.push(<uploadScreen appContext={this.props.appContext}/>)
+      //   this.props.appContext.setState({loginPage: [], uploadScreen: uploadScreen})
+      // }
+      // else if (res.data.code === 204) {
+      //   console.log("Username and password do not match");
+      //   alert("Username and password do not match")
+      // }
+      // else {
+      //   console.log("Username does not exist");
+      //   alert("Username does not exist");
+      // }
     })
     .catch(function (err) {
       console.log(err);
@@ -75,7 +75,7 @@ class Login extends Component {
               <div className="form-field">
                 <button className="btn-large waves-effect waves-dark" 
                   style={{width: '100%'}}
-                  onClick = { this.handleClick }>
+                  onClick = {(event) => this.handleClick(event)}>
                   Log in
                 </button>
               </div><br />
