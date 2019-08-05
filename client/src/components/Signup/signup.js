@@ -14,30 +14,32 @@ class Signup extends Component {
     }
   }
 
-  handleClick = event => {
-    event.preventDefault();
-
-    axios.post("/api/register", {
-      first: this.state.first_name,
-      last: this.state.last_name,
-      email: this.state.email,
-      username: this.state.username,
-      password: this.state.password})
-    .then(function (res) {
-      console.log(res);
-      // if (res.data.code === 200) {
-      //   console.log ("Registration successfull");
-      //   const loginscreen = [];
-      //   loginscreen.push(<Login parentContext = {this}/>);
-      //   const loginmessage = "Not registered yet. Go to registration";
-      //   this.props.parentContext.setState ({ 
-      //     loginscreen: loginscreen,
-      //     loginmessage: loginmessage,
-      //     buttonLabel: "Register",
-      //     isLogged: true
-      //   });
-      // }
-    })
+  handleClick(event) {
+    // const apiBaseUrl = "/api";
+    const payload = {
+      "first": this.state.first_name,
+      "last": this.state.last_name,
+      "email": this.state.email,
+      "username": this.state.username,
+      "password": this.state.password
+    }
+    // console.log(payload);
+    axios.post('/api/register', payload)
+      .then(function (res) {
+        console.log(res);
+        // if (res.data.code === 200) {
+        //   console.log ("Registration successfull");
+        //   const loginscreen = [];
+        //   loginscreen.push(<Login parentContext = {this}/>);
+        //   const loginmessage = "Not registered yet. Go to registration";
+        //   this.props.parentContext.setState ({ 
+        //     loginscreen: loginscreen,
+        //     loginmessage: loginmessage,
+        //     buttonLabel: "Register",
+        //     isLogged: true
+        //   });
+        // }
+      })
     .catch(function (err) {
       console.log(err);
     });
