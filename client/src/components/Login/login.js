@@ -11,13 +11,10 @@ class Login extends Component {
   }
 
   handleClick(event) {
-    const apiBaseUrl = "http://localhost:5000";
-    const payload = {
-      "username": this.state.username,
-      "password": this.state.password
-    }
-    axios.post(apiBaseUrl + '/login', payload)
-    .then(function (res) {
+    axios.post("/login", {
+      username: this.state.username,
+      password: this.state.password
+  }).then(function (res) {
       console.log(res);
       // if (res.data.code === 200) {
       //   console.log("Login successful");
