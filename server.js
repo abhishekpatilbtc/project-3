@@ -13,8 +13,7 @@ const passport = require('passport'), LocalStrategy = require('passport-local').
 const PORT = process.env.PORT || 3001;
 var socketIO = require('socket.io');
 
-// Initialize Passport and restore authentication state, if any, from the
-// session.
+// Initialize Passport and restore authentication state, if any, from the session.
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -92,21 +91,6 @@ passport.deserializeUser(function(id, cb) {
     cb(null, user);
   });
 });
-
-
-
-
-// //Login API
-// app.post('/login', 
-//   passport.authenticate('local', { failureRedirect: '/login' }),
-//   function(req, res) {
-//    res.send(req.user)
-//   });
-
-// app.get('/logout', function(req, res) {
-//   req.logout()
-//   res.send('Logged out successfully')
-// })
 
 
 // Start the API server
