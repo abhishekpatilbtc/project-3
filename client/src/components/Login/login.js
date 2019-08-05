@@ -13,7 +13,7 @@ class Login extends Component {
   handleClick(event) {
     const apiBaseUrl = "http://localhost:3000/api";
     const payload = {
-      "email": this.state.username,
+      "username": this.state.username,
       "password": this.state.password
     }
     axios.post(apiBaseUrl + '/login', payload)
@@ -56,13 +56,13 @@ class Login extends Component {
               <div className="form-field">
                 <label htmlFor="username">Username</label>
                 <input type="text" id="username" 
-                  onChange = {( event, newValue ) => this.setState ({ username: newValue})}/>
+                  onChange = {( event ) => this.setState ({ username: event.target.value})}/>
               </div><br />
 
               <div className="form-field">
                 <label htmlFor="username">Password</label>
                 <input type="password" id="password" 
-                  onChange = {( event, newValue ) => this.setState ({ password: newValue })}/>
+                  onChange = {( event ) => this.setState ({ password: event.target.value })}/>
               </div><br />
 
               <div className="form-field">
@@ -73,7 +73,11 @@ class Login extends Component {
               </div><br />
 
               <div className="form-field">
-                <button className="btn-large waves-effect waves-dark" style={{width: '100%'}}>Log in</button>
+                <button className="btn-large waves-effect waves-dark" 
+                  style={{width: '100%'}}
+                  onClick = { this.handleClick }>
+                  Log in
+                </button>
               </div><br />
 
               <span>Don't have an account? <a href="/signup">Sign up</a></span>
