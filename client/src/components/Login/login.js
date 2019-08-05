@@ -10,7 +10,8 @@ class Login extends Component {
     }
   }
 
-  handleClick(event) {
+  handleClick = event => {
+    event.preventDefault();
     axios.post("/login", {
       username: this.state.username,
       password: this.state.password
