@@ -11,7 +11,7 @@ class Login extends Component {
   }
 
   handleClick(event) {
-    const apiBaseUrl = "http://localhost:3001";
+    const apiBaseUrl = "http://localhost:5000";
     const payload = {
       "username": this.state.username,
       "password": this.state.password
