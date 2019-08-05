@@ -14,17 +14,15 @@ class Signup extends Component {
     }
   }
 
-  handleClick(event) {
-    const apiBaseUrl = "http://localhost:3001/api";
-    const payload = {
-      "first": this.state.first_name,
-      "last": this.state.last_name,
-      "email": this.state.email,
-      "username": this.state.username,
-      "password": this.state.password
-    }
-    console.log(payload);
-    axios.post(apiBaseUrl + '/register', payload)
+  handleClick = event => {
+    event.preventDefault();
+
+    axios.post("/api/register", {
+      first: this.state.first_name,
+      last: this.state.last_name,
+      email: this.state.email,
+      username: this.state.username,
+      password: this.state.password})
     .then(function (res) {
       console.log(res);
       // if (res.data.code === 200) {
