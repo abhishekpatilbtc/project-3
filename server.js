@@ -3,15 +3,56 @@ const db = require("./models")
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
+const http = require('http');
+
+const cookieParser = require('cookie-parser');
+var expressValidator = require('express-validator');
+const flash = require('connect-flash');
+const session = require('express-session');
 const passport = require('passport'), LocalStrategy = require('passport-local').Strategy;
 const PORT = process.env.PORT || 3001;
+var socketIO = require('socket.io');
+
+// Initialize Passport and restore authentication state, if any, from the
+// session.
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
+const server = http.createServer(app);
+const io= socketIO(server);
+require('./socket/addFriend')(io);
+
 // Configure body parsing for AJAX requests
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
+
+// Express Session
+app.use(session({
+  secret: 'secret',
+  saveUninitialized: true,
+  resave: true
+}));
+
 // Serve up static assets
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+// Connect Flash
+app.use(flash());
+
+// Global
+app.use(function (req, res, next) {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  res.locals.user = req.user || null;
+  next();
+});
 
 // Add routes, both API and view
 app.use(routes);
@@ -52,26 +93,20 @@ passport.deserializeUser(function(id, cb) {
   });
 });
 
-// Initialize Passport and restore authentication state, if any, from the
-// session.
-app.use(passport.initialize());
-app.use(passport.session());
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
 
-//Login API
-app.post('/login', 
-  passport.authenticate('local', { failureRedirect: '/login' }),
-  function(req, res) {
-   res.send(req.user)
-  });
 
-app.get('/logout', function(req, res) {
-  req.logout()
-  res.send('Logged out successfully')
-})
+
+// //Login API
+// app.post('/login', 
+//   passport.authenticate('local', { failureRedirect: '/login' }),
+//   function(req, res) {
+//    res.send(req.user)
+//   });
+
+// app.get('/logout', function(req, res) {
+//   req.logout()
+//   res.send('Logged out successfully')
+// })
 
 
 // Start the API server
