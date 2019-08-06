@@ -13,8 +13,4 @@ export default {
     deleteUser: function(id) {
       return axios.delete("/api/users/" + id);
     },
-    // Saves a user to the database
-    registerUser: function(userData) {
-      return axios.post("/api/register", userData);
-    }
   };
