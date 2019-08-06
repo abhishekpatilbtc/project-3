@@ -3,20 +3,28 @@ const Schema = mongoose.Schema;
 
 
 const transactionSchema = new Schema({
-  requestedBy: { 
+  requestedBy: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User' },
+    ref: 'User',
+    required: true
+  },
+  sentBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
   description: String,
-  requester: String,
-  receiver: String,
-  payment: { type: Number, required: true },
+  payment: { type: Number},
   amount: { type: Number, required: true },
-  interest:{type: Number},
-  comments: [{ text: String,
-     date: Date,
-     postedBy: {type: mongoose.Schema.Types.ObjectId,
-     ref: 'User' } 
-    }],
+  interest: { type: Number },
+  comments: [{
+    text: String,
+    date: Date,
+    postedBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    }
+  }],
   date: { type: Date, default: Date.now }
 });
 
