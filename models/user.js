@@ -22,8 +22,8 @@ const userSchema = new Schema({
         friendId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
         friendName: { type: String, default: '' }
     }],
-    totalRequest: { type: Number, default: 0 }
-
+    totalRequest: { type: Number, default: 0 },
+    transactionsList:[{type: mongoose.Schema.Types.ObjectId, ref: 'Transaction'}]
 })
 
 
