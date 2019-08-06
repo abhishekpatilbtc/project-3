@@ -17,20 +17,28 @@ class User extends Component {
     state = {
         user: {},
         friendsList: [],
-        loggedIn: false
+        loggedIn: false,
     };
     // When this component mounts, grab the book with the _id of this.props.match.params.id
     // e.g. localhost:3000/user/5d4755e1a4b1e79d03aee81b
     componentDidMount() {
         this.loadUser();
+        this.loadTrans();
     }
 
     loadUser = () => {
         API.getUser(this.props.match.params.id)
-            // .then(res => this.setState({ user: res.data }))
             .then(res => this.setState({user: res.data}))
             .catch(err => console.log(err))
     }
+
+    loadTrans = () => {
+        API.getTransaction(this.props.match.params.id)
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err));
+
+    }
+    
 
     
 

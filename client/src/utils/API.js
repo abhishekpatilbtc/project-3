@@ -18,7 +18,7 @@ export default {
       return axios.get("/api/transactions/");
     },
     // Gets the transaction referenced to user with the given id
-    getTransaction: function(id) {
-      return axios.get("/api/transactions/" + id);
+    getTransaction: function(requestedBy) {
+      return axios.get("/api/transactions/?requestedBy=" + requestedBy);
     },
   };
