@@ -6,20 +6,22 @@ class Login extends Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      redirectTo: null
     }
   }
 
   handleClick = event => {
-    event.preventDefault();
-    axios.post("/login", {
-      username: this.state.username,
-      password: this.state.password
-  }).then(function (res) {
+    const payload = {
+      "username": this.state.username,
+      "password": this.state.password
+    }
+    axios.post('/login', payload)
+    .then((res) => {
       console.log(res);
-      // if (res.data.code === 200) {
-      //   console.log("Login successful");
-      //   const uploadScreen = [];
+      if (res.status === 200) {
+      console.log("Login successful");
+      // this.setState({redirecTo:"/user"+res.data.id})
       //   uploadScreen.push(<uploadScreen appContext={this.props.appContext}/>)
       //   this.props.appContext.setState({loginPage: [], uploadScreen: uploadScreen})
       // }
@@ -31,15 +33,12 @@ class Login extends Component {
       //   console.log("Username does not exist");
       //   alert("Username does not exist");
       // }
-    })
-    .catch(function (err) {
+    }
+  })
+  .catch(function (err) {
       console.log(err);
     });
   }
-
-
-
-  
 
   render () {
     return (
