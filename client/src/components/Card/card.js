@@ -1,7 +1,7 @@
 import React from "react";
 import "./card.css";
 
-function Card() {
+function Card(props) {
     return (
         <div className="col s12 m7">
             <div className="card horizontal">
@@ -10,7 +10,7 @@ function Card() {
                 </div>
                 <div className="card-stacked">
                     <div className="card-content">
-                        <h5>Isadora Mandelstam (You)</h5>
+                        <h5>{props.first_name} {props.last_name} (You)</h5>
                         <p>Total balance: - $25</p>
                     </div>
                     <div className="card-action">
