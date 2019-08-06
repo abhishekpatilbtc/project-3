@@ -21,18 +21,9 @@ class Login extends Component {
       console.log(res);
       if (res.status === 200) {
       console.log("Login successful");
-      // this.setState({redirecTo:"/user"+res.data.id})
-      //   uploadScreen.push(<uploadScreen appContext={this.props.appContext}/>)
-      //   this.props.appContext.setState({loginPage: [], uploadScreen: uploadScreen})
-      // }
-      // else if (res.data.code === 204) {
-      //   console.log("Username and password do not match");
-      //   alert("Username and password do not match")
-      // }
-      // else {
-      //   console.log("Username does not exist");
-      //   alert("Username does not exist");
-      // }
+      console.log("$---------$")
+      this.props.history.push('/user/'+ res.data.id);
+        window.scrollTo(0, 0);
     }
   })
   .catch(function (err) {

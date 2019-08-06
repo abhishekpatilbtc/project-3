@@ -264,11 +264,38 @@ passport.deserializeUser(function (id, done) {
     });
 });
 
-router.post('/login',
-    passport.authenticate('local', {  failureRedirect: '/login' }),
-    function (req, res) {
-            res.send({ message: 'User logged in successfully'})
-        });
+// router.post('/login',
+//     passport.authenticate('local', {  failureRedirect: '/login' }),
+//     function (req, res) {
+//             res.send({ message: 'User logged in successfully'})
+//         });
+
+router.post(
+    "/login",
+    function(req, res, next) {
+      console.log("routes/user.js, login, req.body: ");
+      console.log(req.body);
+      next();
+    },
+    passport.authenticate("local"),
+    (req, res) => {
+      console.log("logged in", req.user);
+      console.log("req.account:", req.account);
+      var userInfo = {
+        username: req.user.username,
+        id: req.user.id
+      };
+      res.send(userInfo);
+
+    }
+  );
+
+
+
+
+
+
+
 
 router.get('/logout', function (req, res) {
     req.logout();
