@@ -16,6 +16,7 @@ const transactionSchema = new Schema({
   description: String,
   payment: { type: Number},
   amount: { type: Number, required: true },
+  userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   interest: { type: Number },
   comments: [{
     text: String,
