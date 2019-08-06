@@ -28,20 +28,11 @@ class Signup extends Component {
     // console.log(payload);
     axios.post('/api/register', payload)
       .then((res)=> {
-        console.log("!!!!!!!!!!!")
+        console.log("$---------$")
         console.log(res);
         if (res.status === 200) {
           console.log ("Registration successfull");
           this.setState({redirectTo:"/login"})
-          // const loginscreen = [];
-          // loginscreen.push(<Login parentContext = {this}/>);
-          // const loginmessage = "Not registered yet. Go to registration";
-          // this.props.parentContext.setState ({ 
-          //   loginscreen: loginscreen,
-          //   loginmessage: loginmessage,
-          //   buttonLabel: "Register",
-          //   isLogged: true
-          // });
         }
       })
     .catch(function (err) {
@@ -53,9 +44,7 @@ class Signup extends Component {
     if(this.state.redirectTo){
         return (<Redirect to={{ pathname: this.state.redirectTo }}/>)
     } 
-  //   if(true){
-  //     return (<Redirect to={{ pathname: "/login" }}/>)
-  // }
+
     else
     return (
       
