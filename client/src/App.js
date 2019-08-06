@@ -16,7 +16,7 @@ function App() {
                 <Nav />
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route exact path="/user" component={User} />
+                    <Route exact path="/user/:id" component={User} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/signup" component={Signup} />
                     <Route exact path="/add" component={Add} />
