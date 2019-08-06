@@ -11,7 +11,9 @@ router.post('/', function(req, res) {
         res.status(500)
           .send("Error registering new user please try again.");
       } else {
-        res.redirect('/login');
+        //res.redirect('/login');
+        //send user information
+        res.send("Welcome");
       }
     });
   });

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 // import Login from "../Login/login";
 
 class Signup extends Component {
@@ -10,7 +11,8 @@ class Signup extends Component {
       last_name: '',
       email: '',
       username: '',
-      password: ''
+      password: '',
+      redirectTo: null
     }
   }
 
@@ -25,20 +27,22 @@ class Signup extends Component {
     }
     // console.log(payload);
     axios.post('/api/register', payload)
-      .then(function (res) {
+      .then((res)=> {
+        console.log("!!!!!!!!!!!")
         console.log(res);
-        // if (res.data.code === 200) {
-        //   console.log ("Registration successfull");
-        //   const loginscreen = [];
-        //   loginscreen.push(<Login parentContext = {this}/>);
-        //   const loginmessage = "Not registered yet. Go to registration";
-        //   this.props.parentContext.setState ({ 
-        //     loginscreen: loginscreen,
-        //     loginmessage: loginmessage,
-        //     buttonLabel: "Register",
-        //     isLogged: true
-        //   });
-        // }
+        if (res.status === 200) {
+          console.log ("Registration successfull");
+          this.setState({redirectTo:"/login"})
+          // const loginscreen = [];
+          // loginscreen.push(<Login parentContext = {this}/>);
+          // const loginmessage = "Not registered yet. Go to registration";
+          // this.props.parentContext.setState ({ 
+          //   loginscreen: loginscreen,
+          //   loginmessage: loginmessage,
+          //   buttonLabel: "Register",
+          //   isLogged: true
+          // });
+        }
       })
     .catch(function (err) {
       console.log(err);
@@ -46,7 +50,15 @@ class Signup extends Component {
   }
 
   render () {
+    if(this.state.redirectTo){
+        return (<Redirect to={{ pathname: this.state.redirectTo }}/>)
+    } 
+  //   if(true){
+  //     return (<Redirect to={{ pathname: "/login" }}/>)
+  // }
+    else
     return (
+      
       <div className="row">
         <div className="col s12 m4 offset-m4">
           <div className="card">
