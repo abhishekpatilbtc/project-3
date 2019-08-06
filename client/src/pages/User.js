@@ -28,16 +28,19 @@ class User extends Component {
     loadUser = () => {
         API.getUser(this.props.match.params.id)
             // .then(res => this.setState({ user: res.data }))
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+            .then(res => this.setState({user: res.data}))
+            .catch(err => console.log(err))
     }
 
-
+    
 
     render() {
         return (
             <div className="container" style={{ width: '70%' }}>
-                <Card />
+                <Card 
+                    first_name={this.state.user.first} 
+                    last_name={this.state.user.last}
+                />
                 <List />
             </div>
         );
