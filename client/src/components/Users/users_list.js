@@ -17,8 +17,13 @@ class Users_List extends Component {
     }
 
     handleClick = event => {
-        
+        console.log(this.key)
+        friends.push()
     }
+
+    // var loop = this.state.navitems.map(function(item, index){
+    //     return <NavItem key={index} publicUrl={this.state.publicUrl} item={item}></NavItem>;
+    // }.bind(this));
 
     render () {
         return (
@@ -46,7 +51,6 @@ class Users_List extends Component {
                 ))
             }
             </div>
-
         )
     }
 }
