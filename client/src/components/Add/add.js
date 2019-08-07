@@ -22,9 +22,19 @@ function Add () {
                 </form>
               </div>
             </nav><br />
-            <div className="form-field">
+
+            {/* <div className="form-field">
               <input type="email" id="email" placeholder="Cannot find who you are looking for? Enter an email to send them an invite" />
+            </div><br /> */}
+
+            <div className="form-field">
+              <button className="btn-large waves-effect waves-dark" 
+                style={{width: '100%'}}
+                onClick = {(event) => this.handleClick(event)}>
+                Log in
+              </button>
             </div><br />
+
           </div>
         </div>
       </div>
