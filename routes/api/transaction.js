@@ -3,14 +3,14 @@ const User = require('../../models/user');
 const Transaction = require('../../models/transaction');
 const transactionController = require("../../controllers/transactionController")
 
-router.route("/")
-.get(transactionController.findAll)
-//.post(transactionController.create);
+// router.route("/")
+// // .get(transactionController.findAll)
+// // //.post(transactionController.create);
 
-router.route("/:id")
-.get(transactionController.findById)
-.put(transactionController.update)
-.delete(transactionController.remove);
+// router.route("/:id")
+// // .get(transactionController.findById)
+// // .put(transactionController.update)
+// // .delete(transactionController.remove);
 
 
 router.post('/:id', (req, res) => {
@@ -32,6 +32,18 @@ router.post('/:id', (req, res) => {
     });
   });
   
+  router.get('/:id', (req, res) => {
+    const id = req.params.id
+     User.findById(id)
+     .populate('transactionList')
+     .then(user => {
+   
+       // the user object would now have the transactionList property with all the transactions
+       res.send({user})
+   
+     });
+
+    });
 
 
-module.exports = router;
+module.exports = router
