@@ -23,12 +23,12 @@ router.use("/api", apiRoutes);
 
 
 //Get Homepage
-router.get('/', ensureAuthenticated, function (req, res) {
+router.get('/', function (req, res) {
     res.send(req.user.request);
     console.log("Sending user's request")
 });
 
-router.get('/search', ensureAuthenticated, function (req, res) {
+router.get('/search', function (req, res) {
     var sent = [];
     var friends = [];
     var received = [];
@@ -195,40 +195,40 @@ router.post('/search', ensureAuthenticated, function (req, res) {
     });
 });
 
-router.post('/', function (req, res) {
-    var form = new formidable.IncomingForm();
-    form.parse(req);
-    let reqPath = path.join(__dirname, '../');
-    let newfilename;
-    form.on('fileBegin', function (name, file) {
-        file.path = reqPath + 'public/upload/' + req.user.username + file.name;
-        newfilename = req.user.username + file.name;
-    });
-    form.on('file', function (name, file) {
-        User.findOneAndUpdate({
-            username: req.user.username
-        },
-            {
-                'userImage': newfilename
-            },
-            function (err, result) {
-                if (err) {
-                    console.log(err);
-                }
-            });
-    });
-    req.flash('success_msg', 'Your profile picture has been uploaded');
-    res.redirect('/');
-});
+// router.post('/', function (req, res) {
+//     var form = new formidable.IncomingForm();
+//     form.parse(req);
+//     let reqPath = path.join(__dirname, '../');
+//     let newfilename;
+//     form.on('fileBegin', function (name, file) {
+//         file.path = reqPath + 'public/upload/' + req.user.username + file.name;
+//         newfilename = req.user.username + file.name;
+//     });
+//     form.on('file', function (name, file) {
+//         User.findOneAndUpdate({
+//             username: req.user.username
+//         },
+//             {
+//                 'userImage': newfilename
+//             },
+//             function (err, result) {
+//                 if (err) {
+//                     console.log(err);
+//                 }
+//             });
+//     });
+//     req.flash('success_msg', 'Your profile picture has been uploaded');
+//     res.redirect('/');
+// });
 
-function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next();
-    } else {
-        //req.flash('error_msg','You are not logged in');
-        res.redirect('/login');
-    }
-}
+// function ensureAuthenticated(req, res, next) {
+//     if (req.isAuthenticated()) {
+//         return next();
+//     } else {
+//         //req.flash('error_msg','You are not logged in');
+//         res.redirect('/login');
+//     }
+// }
 ///////
 
 
@@ -304,5 +304,7 @@ router.get('/logout', function (req, res) {
 
     // req.flash('success_msg', 'You are logged out');
 });
+
+
 
 module.exports = router;
