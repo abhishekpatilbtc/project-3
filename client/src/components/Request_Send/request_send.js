@@ -3,7 +3,7 @@ import React from "react";
 function Request () {
     return (
         <div className="row">
-        <div className="col s12 m4 offset-m4">
+        <div className="col s12 m8 offset-m2">
           <div className="card">
             <div className="card-content">
               <div className="card-action teal lighten-1 white-text" style={{paddingTop: '0', paddingBottom: '5px'}}>
