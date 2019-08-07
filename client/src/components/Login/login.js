@@ -7,7 +7,7 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
-      redirectTo: null
+      // redirectTo: null
     }
   }
 
@@ -22,8 +22,10 @@ class Login extends Component {
       if (res.status === 200) {
       console.log("Login successful");
       console.log("$---------$")
-      this.props.history.push('/user/'+ res.data.id);
-        window.scrollTo(0, 0);
+      localStorage.setItem('token', true)
+      //this.props.history.push('/user/'+ res.data.id);
+      window.location.href = '/user/'+ res.data.id
+      window.scrollTo(0, 0);
     }
   })
   .catch(function (err) {
