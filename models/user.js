@@ -29,11 +29,9 @@ const userSchema = new Schema({
     }]
 })
 
-    transactionList: [{type: mongoose.Schema.Types.ObjectId, ref: 'Transaction'}]
+    // transactionList: [{type: mongoose.Schema.Types.ObjectId, ref: 'Transaction'}]
     // transactionsList: [transactionSchema],
     // child: transactionSchema
-
-})
 const User = mongoose.model('User', userSchema)
 
 
