@@ -21,6 +21,7 @@ var { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
 router.use("/api", apiRoutes);
 
 
+
 //Get Homepage
 router.get('/', ensureAuthenticated, function (req, res) {
     res.send(req.user.request);
