@@ -17,6 +17,7 @@ class Nav extends Component {
     handleLogoutClick() {
     // logout this will clear storage or cookie
     localStorage.removeItem('token')
+    localStorage.removeItem('User')
     }
 
     render() {
