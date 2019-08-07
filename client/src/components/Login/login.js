@@ -20,9 +20,11 @@ class Login extends Component {
     .then((res) => {
       console.log(res);
       if (res.status === 200) {
+    
       console.log("Login successful");
       console.log("$---------$")
       localStorage.setItem('token', true)
+      localStorage.setItem('User', res.data.id)
       //this.props.history.push('/user/'+ res.data.id);
       window.location.href = '/user/'+ res.data.id
       window.scrollTo(0, 0);
