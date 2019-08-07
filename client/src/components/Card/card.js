@@ -14,8 +14,7 @@ function Card(props) {
                         <p>Total balance: - $25</p>
                     </div>
                     <div className="card-action">
-                        <a className="waves-effect waves-light btn" id="request" href="/request">Request</a>
-                        <a className="waves-effect waves-light btn" href="../components/Request_Send/request_send">Send</a>
+                        <a className="waves-effect waves-light btn" id="request" href="/request">Add a transaction</a>
                     </div>
                 </div>
             </div>

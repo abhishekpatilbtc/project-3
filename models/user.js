@@ -23,7 +23,8 @@ const userSchema = new Schema({
         friendName: { type: String, default: '' }
     }],
     totalRequest: { type: Number, default: 0 },
-    transactionsList:[{type: mongoose.Schema.Types.ObjectId, ref: 'Transaction'}]
+    transactionsList:[{type: mongoose.Schema.Types.ObjectId, ref: 'Transaction'
+    }]
 })
 
 
