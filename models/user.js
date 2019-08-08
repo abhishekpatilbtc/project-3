@@ -20,10 +20,8 @@ const userSchema = new Schema({
         userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
         username: { type: String, default: '' }
     }],
-    friendsList: [{
-        friendId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-        friendName: { type: String, default: '' }
-    }],
+    friendsList: [{type: Schema.Types.ObjectId, ref: 'User' }],
+    // friendsList: [],
     totalRequest: { type: Number, default: 0 },
     transactionsList:[{type: mongoose.Schema.Types.ObjectId, ref: 'Transaction'}]
 })
