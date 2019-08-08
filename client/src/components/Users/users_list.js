@@ -5,25 +5,30 @@ import axios from "axios";
 class Users_List extends Component {
     state = {
         users: [],
-        friends: []
     }
 
     componentDidMount () {
         axios.get("/api/users")
         .then (res => {
             const users = res.data;
+            console.log(res.data)
             this.setState({ users });
         })
     }
 
-    handleClick = event => {
-        console.log(this.key)
-        friends.push()
-    }
+    handleClick = user => {
+        const payload = {
+            id: localStorage.getItem('User'),
+            user
+        }
+        
+        axios.post ('/api/users/addfriend', payload)
+        .then((res) => {
+            console.log(res);
+        })
 
-    // var loop = this.state.navitems.map(function(item, index){
-    //     return <NavItem key={index} publicUrl={this.state.publicUrl} item={item}></NavItem>;
-    // }.bind(this));
+    }
+    
 
     render () {
         return (
@@ -43,7 +48,7 @@ class Users_List extends Component {
                                 <div className="card-action">
                                     <button className="waves-effect waves-light btn" 
                                     id="add" 
-                                    onClick = {(event) => this.handleClick(event)}>Add</button>
+                                    onClick = {() => this.handleClick(user)}>Add</button>
                                 </div>
                             </div>
                         </div>
