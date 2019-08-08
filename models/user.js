@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 mongoose.promise = Promise
 
-const transactionSchema = require("../models/transaction").transactionSchema;
 
 
 // Define userSchema
@@ -21,7 +20,6 @@ const userSchema = new Schema({
         username: { type: String, default: '' }
     }],
     friendsList: [{type: Schema.Types.ObjectId, ref: 'User' }],
-    // friendsList: [],
     totalRequest: { type: Number, default: 0 },
     transactionsList:[{type: mongoose.Schema.Types.ObjectId, ref: 'Transaction'}]
 })

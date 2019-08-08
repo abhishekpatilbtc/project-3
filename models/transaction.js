@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
   const transactionSchema = new Schema({
-  requestedBy: {
+  receiver: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
 
   },
-  sentBy: {
+  sender: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
