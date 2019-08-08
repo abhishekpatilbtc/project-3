@@ -1,28 +1,30 @@
 import React, { Component } from "react";
-import API from "../utils/API"
+import axios from "axios";
 
-
-// API.getFriends(localStorage.getItem('User'))
-// .then(res => console.log(res.data.user.friendsList))
+// API.getFriends(id)
+// .then(res => {
+//     const friends = res.data.user.friendsList;
+//     console.log(res.data.user.friendsList)
+//     this.setState({friends});
+// })
 // .catch(err => console.log(err));
 
 class Friends extends Component {
     state = {
-        friends: [],
+        friends: []
     }
 
-    componentDidMount () {
-        this.loadFriends();
-    }
-
-    loadFriends = () => {
-     
-        API.getFriends(localStorage.getItem('User'))
-        // .then(res => this.setState({friends: res.data}))
-        .then(res => this.setState({ friends: res.data.user.friendsList }))
+    componentDidMount() {
+        axios.get("/api/users/listfriends")
+        .then (res => {
+            const friends = res.data.user.friendsList;
+            console.log(res.data.user.friendsList)
+            this.setState({ friends });
+        })
         .catch(err => console.log(err));
     }
-        
+
+
     render () {
         return (
             <div className="container">
@@ -31,7 +33,7 @@ class Friends extends Component {
                         <div className="col s12 m7" key={i}>
                             <div className="card horizontal">
                                 <div className="card-image">
-                                    <img src={require("../components/Users/image.png")} alt="avatar" style={{borderRadius: '50%', height: '150px', width: '150px'}} />
+                                    <img src={require("../Card/image.png")} alt="avatar" style={{borderRadius: '50%', height: '150px', width: '150px'}} />
                                 </div>
                                 <div className="card-stacked">
                                     <div className="card-content">
@@ -46,8 +48,6 @@ class Friends extends Component {
             </div>
         )
     }
-
-
 }
 
 export default Friends;

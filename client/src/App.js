@@ -9,7 +9,7 @@ import Signup from "./components/Signup/signup";
 import Add from "./components/Add/add";
 import Request from "./components/Request_Send/request_send";
 import Users from "./components/Users/users_list";
-import Friends from "./pages/Friends";
+import Friends from "./components/Friends/Friends";
 
 function App() {
     return (
