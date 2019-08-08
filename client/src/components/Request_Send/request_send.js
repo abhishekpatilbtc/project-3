@@ -44,6 +44,7 @@ class Request extends Component {
   constructor(props) {
     super(props);
     this.state = {
+<<<<<<< Updated upstream
       value: '',
       suggestions: []
     }
@@ -53,6 +54,38 @@ class Request extends Component {
   onChange = (event, { newValue }) => {
     this.setState({
       value: newValue
+=======
+      userId: '',
+      username: '',
+      amount: ''
+    }
+  }
+
+  componentDidMount() {
+    API.getFriends(id)
+    .then (res => {
+      const friends = res.data.user.friendsList;
+      console.log(friends);
+    }).catch (err => console.log(err));
+  }
+  
+
+  handleClick = event => {
+    const payload = {
+      userId: localStorage.getItem('User'),
+      username: this.state.username,
+      amount: this.state.amount
+    }
+
+    // let id = this.state.userId
+    axios.post('/api/transactions/'+ payload.userId, payload)
+    .then((res) => {
+      console.log(res);
+      // redirect to home (user) page
+    })
+    .catch((err) => {
+      console.log(err);
+>>>>>>> Stashed changes
     });
   };
 
@@ -106,6 +139,10 @@ class Request extends Component {
 
 
 
+<<<<<<< Updated upstream
+=======
+  render (friends) {
+>>>>>>> Stashed changes
     return (
       <div className="row">
         <div className="col s12 m8 offset-m2">
@@ -126,6 +163,7 @@ class Request extends Component {
                 />
               </div><br />
 
+<<<<<<< Updated upstream
               {/* <div className="form-field" style={{ borderBottom: '1px solid #9e9e9e' }}>
                 <label htmlFor="select">Choose a friend</label>
 
@@ -136,10 +174,21 @@ class Request extends Component {
                 
 
               </div><br /> */}
+=======
+              <div className="form-field">
+                <label htmlFor="sum">Choose a friend</label>
+                {/* <input type="text" id="friend" 
+                  
+                  onChange = {(event) => this.setState ({ username: event.target.value })}/>
+              </div><br /> */}
+              <Autocomplete suggestions ={friends} />
+              </div>
+>>>>>>> Stashed changes
 
               <div className="form-field">
                 <label htmlFor="sum">Amount</label>
-                <input type="number" id="sum" />
+                <input type="number" id="sum" 
+                  onChange = {(event) => this.setState ({ amount: event.target.value })}/>
               </div><br />
 
               <button className="waves-effect waves-light btn"
