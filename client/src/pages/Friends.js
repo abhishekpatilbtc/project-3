@@ -1,17 +1,28 @@
 import React, { Component } from "react";
 import API from "../utils/API"
 
+
+// API.getFriends(localStorage.getItem('User'))
+// .then(res => console.log(res.data.user.friendsList))
+// .catch(err => console.log(err));
+
 class Friends extends Component {
     state = {
-        friends: {}
+        friends: [],
     }
 
     componentDidMount () {
-      API.getFriends(this.props.match.params.id)
-        .then(res => this.setState({friends: res.data}))
-        .catch(err => console.log(err));
+        this.loadFriends();
     }
 
+    loadFriends = () => {
+     
+        API.getFriends(localStorage.getItem('User'))
+        // .then(res => this.setState({friends: res.data}))
+        .then(res => this.setState({ friends: res.data.user.friendsList }))
+        .catch(err => console.log(err));
+    }
+        
     render () {
         return (
             <div className="container">

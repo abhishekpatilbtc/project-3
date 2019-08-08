@@ -28,7 +28,7 @@ class Nav extends Component {
         {localStorage.getItem('token') ?
             <ul id="nav-mobile" className="right hide-on-med-and-down">
                 <li> <a href={'/user/' + localStorage.getItem('User')} id="login">Home</a></li>
-                <li> <a href='/friends' id="login">Friends</a></li>
+                <li> <a href={'/friends/' + localStorage.getItem('User')} id="login">Friends</a></li>
                 <li> <a href='/userlist' id="login">Search</a></li>
                 <li> <a href='/' id="login" onClick={this.handleLogoutClick}>Logout</a></li>
             </ul>
