@@ -4,17 +4,22 @@ nav {
     margin-bottom: 2%;
 }
 
+body {
+    background-image: url("./dynamic-style.png")
+}
+
 #login {
     color: gray;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 nav .brand-logo {
     /* color: #7cb342; */
-    color: #26a69a;
+    color: #f57c00;
     font-weight: bold;
 }
 
 #signup {
     margin-right: 0;
+    background-color: #f57c00;
 }

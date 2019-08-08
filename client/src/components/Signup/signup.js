@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import "./signup.css";
 // import Login from "../Login/login";
 
 class Signup extends Component {
@@ -49,10 +50,10 @@ class Signup extends Component {
     return (
       
       <div className="row">
-        <div className="col s12 m4 offset-m4">
+        <div className="col s12 m6 offset-m3">
           <div className="card">
             <div className="card-action teal lighten-1 white-text">
-              <h3>Sign Up</h3>
+              <h4>Sign Up</h4>
             </div>
             <div className="card-content">
               <div className="row">

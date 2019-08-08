@@ -42,7 +42,7 @@ class Friends extends Component {
                             </div>
                         </div>
                     ))
-                    : <h2>You don't have any friends yet</h2>
+                    : <h4 style={{color: 'gray', margin: 'auto'}}>You don't have any friends yet</h4>
                 }
             </div>
         )

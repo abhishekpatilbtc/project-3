@@ -6,7 +6,7 @@
 }
 
 figure {
-    width: 440px;
+    width: 490px;
     overflow: hidden;
     margin: 0;
 }
@@ -19,4 +19,25 @@ figure img {
 
 #text {
     float: left;
+    margin-left: 30px;
+}
+
+.waves-effect {
+    background-color: #f57c00;
+}
+
+.waves-effect :hover {
+    background-color: #ffe0b2;
+}
+
+p {
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: gray;
+}
+
+h2 {
+    color: gray;
+    font-weight: bold;
 }
