@@ -40,8 +40,9 @@ class Request extends Component {
 
               <div className="form-field" style={{borderBottom: '1px solid #9e9e9e'}}>
                 <label htmlFor="select">Choose a receiver</label>
+
                 <select style={{display: 'unset'}}
-                  onChange = {( event ) => this.setState ({ receiver: event.target.value })}>
+                  onChange = {( event ) => this.setState ({ receiver: event.target.textContent })}>
                   <option defaultValue />
                   <option value={1}>Me</option>
                   <option value={2}>Aunt Meredith</option>
@@ -49,6 +50,7 @@ class Request extends Component {
                   <option value={4}>Uncle Anirudh</option>
                   <option value={5}>Becky</option>
                 </select>
+                
               </div><br />
 
               <div className="form-field" style={{borderBottom: '1px solid #9e9e9e'}}>

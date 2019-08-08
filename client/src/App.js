@@ -9,6 +9,7 @@ import Signup from "./components/Signup/signup";
 import Add from "./components/Add/add";
 import Request from "./components/Request_Send/request_send";
 import Users from "./components/Users/users_list";
+import Friends from "./pages/Friends";
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                     <Route exact path="/add" component={Add} />
                     <Route exact path="/request" component={Request} />
                     <Route exact path="/userlist" component={Users} />
+                    <Route exact path="/friends" component={Friends} />
                 </Switch>
                 <Footer />
             </div>
