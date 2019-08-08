@@ -39,7 +39,7 @@ class Users_List extends Component {
                     <div className="col s12 m7" key={i}>
                         <div className="card horizontal">
                             <div className="card-image">
-                                <img src={require("./image.png")} alt="avatar" style={{borderRadius: '50%', height: '150px', width: '150px'}} />
+                                <img src={user.image} alt="avatar" style={{borderRadius: '50%', height: '150px', width: '150px'}} />
                             </div>
                             <div className="card-stacked">
                                 <div className="card-content">

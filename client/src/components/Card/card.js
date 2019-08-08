@@ -6,7 +6,7 @@ function Card(props) {
         <div className="col s12 m7">
             <div className="card horizontal">
                 <div className="card-image">
-                    <img src={require("./image.png")} alt="avatar" style={{borderRadius: '50%', height: '150px', width: '150px'}} />
+                    <img src={props.image} alt="avatar" style={{borderRadius: '50%', height: '150px', width: '150px'}} />
                 </div>
                 <div className="card-stacked">
                     <div className="card-content">

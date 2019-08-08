@@ -31,7 +31,7 @@ class Friends extends Component {
                         <div className="col s12 m7" key={i}>
                             <div className="card horizontal">
                                 <div className="card-image">
-                                    <img src={require("../Card/image.png")} alt="avatar" style={{borderRadius: '50%', height: '150px', width: '150px'}} />
+                                    <img src={friend.image} alt="avatar" style={{borderRadius: '50%', height: '150px', width: '150px'}} />
                                 </div>
                                 <div className="card-stacked">
                                     <div className="card-content">
