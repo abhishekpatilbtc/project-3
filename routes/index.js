@@ -9,12 +9,13 @@ const async = require('async');
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy;
 var { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
+const bcrypt = require('bcryptjs');
 
 // Initialize Passport and restore authentication state, if any, from the
 // session.
 
-    app.use(passport.initialize());
-    app.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 // API Routes
@@ -195,42 +196,6 @@ router.post('/search', ensureAuthenticated, function (req, res) {
     });
 });
 
-// router.post('/', function (req, res) {
-//     var form = new formidable.IncomingForm();
-//     form.parse(req);
-//     let reqPath = path.join(__dirname, '../');
-//     let newfilename;
-//     form.on('fileBegin', function (name, file) {
-//         file.path = reqPath + 'public/upload/' + req.user.username + file.name;
-//         newfilename = req.user.username + file.name;
-//     });
-//     form.on('file', function (name, file) {
-//         User.findOneAndUpdate({
-//             username: req.user.username
-//         },
-//             {
-//                 'userImage': newfilename
-//             },
-//             function (err, result) {
-//                 if (err) {
-//                     console.log(err);
-//                 }
-//             });
-//     });
-//     req.flash('success_msg', 'Your profile picture has been uploaded');
-//     res.redirect('/');
-// });
-
-// function ensureAuthenticated(req, res, next) {
-//     if (req.isAuthenticated()) {
-//         return next();
-//     } else {
-//         //req.flash('error_msg','You are not logged in');
-//         res.redirect('/login');
-//     }
-// }
-///////
-
 
 // Login
 router.get('/login', function (req, res) {
@@ -265,32 +230,27 @@ passport.deserializeUser(function (id, done) {
     });
 });
 
-// router.post('/login',
-//     passport.authenticate('local', {  failureRedirect: '/login' }),
-//     function (req, res) {
-//             res.send({ message: 'User logged in successfully'})
-//         });
 
 router.post(
     "/login",
-    function(req, res, next) {
-      console.log("routes/user.js, login, req.body: ");
-      console.log(req.body);
-      next();
+    function (req, res, next) {
+        console.log("routes/user.js, login, req.body: ");
+        console.log(req.body);
+        next();
     },
     passport.authenticate("local"),
     (req, res) => {
-      console.log("logged in", req.user);
-      
-      var userInfo = {
-        username: req.user.username,
-        id: req.user.id
-      };
-      res.send(userInfo);
-     
+        console.log("logged in", req.user);
+
+        var userInfo = {
+            username: req.user.username,
+            id: req.user.id
+        };
+        res.send(userInfo);
+
 
     }
-  );
+);
 
 
 

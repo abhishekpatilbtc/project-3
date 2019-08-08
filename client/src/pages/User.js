@@ -29,6 +29,7 @@ class User extends Component {
                 <Card 
                     first_name={this.state.user.first} 
                     last_name={this.state.user.last}
+                    image={this.state.user.image}
                 />
                 <List />
             </div>

@@ -62,12 +62,13 @@ class Request extends Component {
 
   // Autosuggest will call this function every time you need to update suggestions.
   // You already implemented this logic above, so just use it.
+ 
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
+      username: value,
       suggestions: getSuggestions(value)
     });
   };
-
   // Autosuggest will call this function every time you need to clear suggestions.
   onSuggestionsClearRequested = () => {
     this.setState({
@@ -95,22 +96,6 @@ class Request extends Component {
   }
 
 
-
-  // handleClick = event => {
-  //   const payload = {
-  //     user: '',
-  //     "receiver": this.state.receiver,
-  //     "sender": this.state.sender,
-  //     "amount": this.state.amount
-  //   }
-  //   axios.post('/api/transactions', payload)
-  //     .then((res) => {
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }
 
   render(friends) {
 
