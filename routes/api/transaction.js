@@ -17,10 +17,12 @@ router.post('/:id', (req, res) => {
   const id = req.params.id
   User.findById(id)
     .then(user => {
+      console.log(user)
+      console.log(user._id)
       Transaction.create({ ...req.body, userId: user._id })
         .then(transaction => {
           user.transactionsList.push(transaction);
-          User.findOne({ username: req.body.un })
+          User.findOne({ username: req.body.username })
             .then(user => {
               user.transactionsList.push(transaction)
               user.save()
