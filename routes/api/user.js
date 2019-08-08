@@ -27,12 +27,11 @@ router.post('/addfriend', (req, res) => {
 
     const id = req.body.id;
     const friendid = req.body.user._id;
-    console.log("user is:" + id)
     // console.log("friend is:" + friendid)
 
     User.find({ _id: id })
         .then(result => {
-            console.log("38", result)
+    
             let friends = result[0].friendsList;
             if (friends.includes(friendid)) {
                 console.log("exists")
@@ -52,6 +51,8 @@ router.post('/addfriend', (req, res) => {
             }
             
         })
+
+        
 
     // User.findById(id)
     //     .then(user => {
@@ -97,6 +98,21 @@ router.post('/addfriend', (req, res) => {
     //     "hi": "hi"
     // })
 });
+
+router.get('/listfriends/:id', (req, res) => {
+    const id = req.params.id;
+    User.findById(id)
+    .populate('friendsList')
+    .then(user => {
+    // the user object would now have the transactionList property with all the transactions
+    res.send({user});
+
+  });
+
+})
+
+
+
 
 
 

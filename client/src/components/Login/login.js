@@ -18,7 +18,6 @@ class Login extends Component {
     }
     axios.post('/login', payload)
     .then((res) => {
-      console.log(res);
       if (res.status === 200) {
     
       console.log("Login successful");
