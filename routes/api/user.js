@@ -109,4 +109,8 @@ router.get('/listfriends/:id', (req, res) => {
     })
 
 
+
+    router.route("/:id")
+    .post(userController.update)
+
     module.exports = router;
