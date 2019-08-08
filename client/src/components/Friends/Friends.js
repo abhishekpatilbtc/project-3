@@ -30,7 +30,7 @@ class Friends extends Component {
                     this.state.friends.map((friend, i) => (
                         <div className="col s12 m7" key={i}>
                             <div className="card horizontal">
-                                <div className="card-image">
+                                <div className="card-image" style={{padding: '15px'}}>
                                     <img src={friend.image} alt="avatar" style={{borderRadius: '50%', height: '150px', width: '150px'}} />
                                 </div>
                                 <div className="card-stacked">

@@ -13,6 +13,27 @@ const transactionController = require("../../controllers/transactionController")
 // // .delete(transactionController.remove);
 
 
+// router.post('/:id', (req, res) => {
+//   const id = req.params.id
+//   User.findById(id)
+//     .then(user => {
+//       console.log(user)
+//       console.log(user._id)
+//       Transaction.create({ ...req.body, userId: user._id })
+//         .then(transaction => {
+//           user.transactionsList.push(transaction);
+//           User.findOne({ username: req.body.username })
+//             .then(user => {
+//               user.transactionsList.push(transaction)
+//               user.save()
+//             })
+//           user.save().then(res.send({ message: 'Transaction added successfully!' }))
+//         });
+//     }).catch((err) => {
+//       console.log(err)
+//     });
+// });
+
 router.post('/:id', (req, res) => {
   const id = req.params.id
   User.findById(id)
@@ -27,12 +48,15 @@ router.post('/:id', (req, res) => {
               user.transactionsList.push(transaction)
               user.save()
             })
-          user.save().then(res.send({ message: 'Transaction added successfully!' }))
+            user.save().then(res.send({ message: 'Transaction added successfully!' }))
         });
     }).catch((err) => {
       console.log(err)
     });
-});
+ });
+ 
+
+
 
 router.get('/:id', (req, res) => {
   const id = req.params.id
