@@ -9,7 +9,7 @@ const transactionController = require("../../controllers/transactionController")
 
 // router.route("/:id")
 // // .get(transactionController.findById)
-// // .put(transactionController.update)
+// .put(transactionController.update)
 // // .delete(transactionController.remove);
 
 

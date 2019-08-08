@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-mongoose.promise = Promise
+mongoose.promise = Promise;
 
 
 
@@ -12,6 +12,7 @@ const userSchema = new Schema({
     email: { type: String, unique: true, required: true },
     first: { type: String, required: true },
     last: { type: String, required: true },
+    image: { type: String, default: '' },
     sentRequest: [{
         username: { type: String, default: '' }
     }],
@@ -24,9 +25,6 @@ const userSchema = new Schema({
     transactionsList:[{type: mongoose.Schema.Types.ObjectId, ref: 'Transaction'}]
 })
 
-    // transactionList: [{type: mongoose.Schema.Types.ObjectId, ref: 'Transaction'}]
-    // transactionsList: [transactionSchema],
-    // child: transactionSchema
 const User = mongoose.model('User', userSchema)
 
 
