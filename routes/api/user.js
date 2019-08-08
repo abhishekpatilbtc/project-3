@@ -99,8 +99,8 @@ router.post('/addfriend', (req, res) => {
     // })
 });
 
-router.get('/listfriends/:id', (req, res) => {
-    const id = req.params.id;
+router.get('/listfriends', (req, res) => {
+    const id = localStorage.getItem('User');
     User.findById(id)
     .populate('friendsList')
     .then(user => {

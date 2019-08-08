@@ -5,8 +5,8 @@ export default {
     getUsers: function() {
       return axios.get("/api/users");
     },
-    getFriends: function(id) {
-      return axios.get("/api/users/listfriends/"+ id);
+    getFriends: function() {
+      return axios.get("/api/users/listfriends");
     },
     // Gets the user with the given id
     getUser: function(id) {
