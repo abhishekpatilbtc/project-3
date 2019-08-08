@@ -1,13 +1,8 @@
 import React, { Component } from "react";
-import axios from "axios";
+import API from "../../utils/API";
+const id = localStorage.getItem('User')
 
-// API.getFriends(id)
-// .then(res => {
-//     const friends = res.data.user.friendsList;
-//     console.log(res.data.user.friendsList)
-//     this.setState({friends});
-// })
-// .catch(err => console.log(err));
+
 
 class Friends extends Component {
     state = {
@@ -15,13 +10,15 @@ class Friends extends Component {
     }
 
     componentDidMount() {
-        axios.get("/api/users/listfriends")
-        .then (res => {
+        console.log(id)
+        API.getFriends(id)
+        .then(res => {
             const friends = res.data.user.friendsList;
             console.log(res.data.user.friendsList)
-            this.setState({ friends });
-        })
-        .catch(err => console.log(err));
+            this.setState({friends});
+        }).catch(err => console.log(err));
+
+        
     }
 
 

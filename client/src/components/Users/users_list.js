@@ -8,6 +8,7 @@ class Users_List extends Component {
     }
 
     componentDidMount () {
+        console.log("mounted")
         axios.get("/api/users")
         .then (res => {
             const users = res.data;
