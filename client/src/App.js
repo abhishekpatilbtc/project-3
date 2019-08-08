@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Moment from 'react-moment';
+// import Moment from 'react-moment';
 import 'moment-timezone';
 import Home from "./pages/Home";
 import User from "./pages/User";
@@ -26,7 +26,7 @@ function App() {
                     <Route exact path="/add" component={Add} />
                     <Route exact path="/request" component={Request} />
                     <Route exact path="/userlist" component={Users} />
-                    <Route exact path="/friends" component={Friends} />
+                    <Route exact path="/friends" component={Friends}/>
                 </Switch>
                 <Footer />
             </div>

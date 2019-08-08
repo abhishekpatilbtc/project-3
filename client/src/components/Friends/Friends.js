@@ -24,8 +24,9 @@ class Friends extends Component {
 
     render () {
         return (
+            
             <div className="container">
-                {
+                { this.state.friends.length ?
                     this.state.friends.map((friend, i) => (
                         <div className="col s12 m7" key={i}>
                             <div className="card horizontal">
@@ -41,6 +42,7 @@ class Friends extends Component {
                             </div>
                         </div>
                     ))
+                    : <h2>You don't have any friends yet</h2>
                 }
             </div>
         )
