@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Autosuggest from 'react-autosuggest';
 import API from "../../utils/API";
+import axios from "axios";
 const id = localStorage.getItem('User');
 var friendsArray = [];
 
@@ -44,9 +45,11 @@ class Request extends Component {
   constructor(props) {
     super(props);
     this.state = {
-<<<<<<< Updated upstream
       value: '',
-      suggestions: []
+      suggestions: [],
+      userId: '',
+      username: '',
+      amount: ''
     }
   }
 
@@ -54,38 +57,6 @@ class Request extends Component {
   onChange = (event, { newValue }) => {
     this.setState({
       value: newValue
-=======
-      userId: '',
-      username: '',
-      amount: ''
-    }
-  }
-
-  componentDidMount() {
-    API.getFriends(id)
-    .then (res => {
-      const friends = res.data.user.friendsList;
-      console.log(friends);
-    }).catch (err => console.log(err));
-  }
-  
-
-  handleClick = event => {
-    const payload = {
-      userId: localStorage.getItem('User'),
-      username: this.state.username,
-      amount: this.state.amount
-    }
-
-    // let id = this.state.userId
-    axios.post('/api/transactions/'+ payload.userId, payload)
-    .then((res) => {
-      console.log(res);
-      // redirect to home (user) page
-    })
-    .catch((err) => {
-      console.log(err);
->>>>>>> Stashed changes
     });
   };
 
@@ -105,8 +76,23 @@ class Request extends Component {
   };
   /////////
 
+  handleClick = event => {
+    const payload = {
+      userId: localStorage.getItem('User'),
+      username: this.state.username,
+      amount: this.state.amount
+    }
 
-
+    // let id = this.state.userId
+    axios.post('/api/transactions/'+ payload.userId, payload)
+    .then((res) => {
+      console.log(res);
+      // redirect to home (user) page
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
 
 
 
@@ -126,7 +112,7 @@ class Request extends Component {
   //     });
   // }
 
-  render() {
+  render(friends) {
 
     const { value, suggestions } = this.state;
 
@@ -139,10 +125,6 @@ class Request extends Component {
 
 
 
-<<<<<<< Updated upstream
-=======
-  render (friends) {
->>>>>>> Stashed changes
     return (
       <div className="row">
         <div className="col s12 m8 offset-m2">
@@ -160,30 +142,18 @@ class Request extends Component {
                   getSuggestionValue={getSuggestionValue}
                   renderSuggestion={renderSuggestion}
                   inputProps={inputProps}
+                  onChange = {(event) => this.setState ({ username: event.target.value })}
                 />
               </div><br />
 
-<<<<<<< Updated upstream
-              {/* <div className="form-field" style={{ borderBottom: '1px solid #9e9e9e' }}>
-                <label htmlFor="select">Choose a friend</label>
-
-                <select style={{ display: 'unset' }}
-                  onChange={(event) => this.setState({ receiver: event.target.textContent })}>
-                
-                </select>
-                
-
-              </div><br /> */}
-=======
-              <div className="form-field">
+              {/* <div className="form-field">
                 <label htmlFor="sum">Choose a friend</label>
-                {/* <input type="text" id="friend" 
+                <input type="text" id="friend" 
                   
                   onChange = {(event) => this.setState ({ username: event.target.value })}/>
-              </div><br /> */}
+              </div><br />
               <Autocomplete suggestions ={friends} />
-              </div>
->>>>>>> Stashed changes
+              </div> */}
 
               <div className="form-field">
                 <label htmlFor="sum">Amount</label>
