@@ -6,7 +6,7 @@ export default {
       return axios.get("/api/users");
     },
     getFriends: function(id) {
-      return axios.get("/api/users/listfriends"+ id);
+      return axios.get("/api/users/listfriends/"+ id);
     },
     // Gets the user with the given id
     getUser: function(id) {
