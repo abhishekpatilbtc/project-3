@@ -25,15 +25,15 @@ class List extends Component {
   render() {
     return (
       <ul className="collection">
-        <a className="btn-floating btn-small waves-effect waves-light red" href="/add"><i className="material-icons">add</i></a>
+        {/* <a className="btn-floating btn-small waves-effect waves-light red" href="/add"><i className="material-icons">add</i></a> */}
         {
           this.state.transactions.map((transaction, i) => (
             <li className="collection-item avatar" key={i}>
               <i className="material-icons circle">account_circle</i>
-              <span className="title">Transaction ID: {transaction._id}</span>
-              <p>Amount: ${transaction.amount}</p>
-              <p>Date: <Moment local>{transaction.date}</Moment></p>
-              <a href="#!" className="secondary-content"><i className="material-icons">grade</i></a>
+              <p>Transaction ID: {transaction._id}</p>
+              <p>${transaction.amount}</p>
+              <p><Moment local format="MM/DD/YYYY">{transaction.date}</Moment></p>
+              {/* <a href="#!" className="secondary-content"><i className="material-icons">grade</i></a> */}
             </li>
           ))
         }

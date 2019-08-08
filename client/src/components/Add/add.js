@@ -1,5 +1,9 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
+// import API from "../../utils/API";
+=======
 import axios from "axios";
+>>>>>>> 266983a7a93aaa524f11b337c2bf77a329a7f9be
 const id = localStorage.getItem('User')
 
 

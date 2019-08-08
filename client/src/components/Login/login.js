@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./login.css";
 
 class Login extends Component {
   constructor (props) {
@@ -37,10 +38,10 @@ class Login extends Component {
   render () {
     return (
         <div className="row">
-        <div className="col s12 m4 offset-m4">
+        <div className="col s12 m6 offset-m3">
           <div className="card">
-            <div className="card-action teal lighten-1 white-text">
-              <h3>Login</h3>
+            <div className="card-action lighten-1 white-text">
+              <h4>Login</h4>
             </div>
             <div className="card-content">
 
@@ -64,7 +65,7 @@ class Login extends Component {
               </div><br />
 
               <div className="form-field">
-                <button className="btn-large waves-effect waves-dark" 
+                <button className="btn-large waves-effect" 
                   style={{width: '100%'}}
                   onClick = {(event) => this.handleClick(event)}>
                   Log in

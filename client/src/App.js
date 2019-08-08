@@ -5,7 +5,7 @@ import 'moment-timezone';
 import Home from "./pages/Home";
 import User from "./pages/User";
 import Nav from "./components/Nav/nav";
-import Footer from "./components/Footer/footer";
+// import Footer from "./components/Footer/footer";
 import Login from "./components/Login/login";
 import Signup from "./components/Signup/signup";
 import Add from "./components/Add/add";
@@ -28,7 +28,7 @@ function App() {
                     <Route exact path="/userlist" component={Users} />
                     <Route exact path="/friends" component={Friends}/>
                 </Switch>
-                <Footer />
+                
             </div>
         </Router>
     );
