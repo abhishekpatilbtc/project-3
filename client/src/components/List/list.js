@@ -1,23 +1,31 @@
-import React from "react";
+import React, { Component } from "react";
+const id = localStorage.getItem('User')
 
-function List() {
-    return (
-      <ul className="collection">
+
+class List extends Component {
+  state = {
+    transactions: []
+  }
+
+  componentDidMount() {
+
+
+  }
+
+ render () {
+  return (
+    <ul className="collection">
       <a className="btn-floating btn-small waves-effect waves-light red" href="/add"><i className="material-icons">add</i></a>
-        
-        <li className="collection-item avatar">
-          <i className="material-icons circle">account_circle</i>
-          <span className="title">Aunt Meredith</span>
-          <p>You owe them $50</p>
-          <a href="#!" className="secondary-content"><i className="material-icons">grade</i></a>
-        </li>
+      <li className="collection-item avatar">
+        <i className="material-icons circle">account_circle</i>
+        <span className="title">Aunt Meredith</span>
+        <p>You owe them $50</p>
+        <a href="#!" className="secondary-content"><i className="material-icons">grade</i></a>
+      </li>
+    </ul>
+  );
+}
 
-        
-
-      
-
-      </ul>
-    );
 }
 
 export default List;

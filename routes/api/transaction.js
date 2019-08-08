@@ -14,36 +14,36 @@ const transactionController = require("../../controllers/transactionController")
 
 
 router.post('/:id', (req, res) => {
-   const id = req.params.id
-    User.findById(id)
+  const id = req.params.id
+  User.findById(id)
     .then(user => {
-        Transaction.create({...req.body, userId: user._id})
+      Transaction.create({ ...req.body, userId: user._id })
         .then(transaction => {
-            user.transactionList.push(transaction);
-            User.findOne({email:req.body.receiver}).then(user => {
-            user.transactionList.push(transaction)
-            user.save()
+          user.transactionsList.push(transaction);
+          User.findOne({ username: req.body.un })
+            .then(user => {
+              user.transactionsList.push(transaction)
+              user.save()
             })
-            user.save().then(res.send({message: 'Transaction added successfully!'}))
+          user.save().then(res.send({ message: 'Transaction added successfully!' }))
         });
-        
     }).catch((err) => {
-        console.log(err)
+      console.log(err)
     });
-  });
-  
-  router.get('/:id', (req, res) => {
-    const id = req.params.id
-     User.findById(id)
-     .populate('transactionList')
-     .then(user => {
-   
-       // the user object would now have the transactionList property with all the transactions
-       res.send({user})
-   
-     });
+});
+
+router.get('/:id', (req, res) => {
+  const id = req.params.id
+  User.findById(id)
+    .populate('transactionList')
+    .then(user => {
+
+      // the user object would now have the transactionList property with all the transactions
+      res.send({ user })
 
     });
+
+});
 
 
 module.exports = router

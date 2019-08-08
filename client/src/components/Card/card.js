@@ -10,8 +10,8 @@ function Card(props) {
                 </div>
                 <div className="card-stacked">
                     <div className="card-content">
-                        <h5>{props.first_name} {props.last_name} (You)</h5>
-                        <p>Total balance: - $25</p>
+                        <h5>{props.first_name} {props.last_name}</h5>
+                        {/* <p>Total balance: - $25</p> */}
                     </div>
                     <div className="card-action">
                         <a className="waves-effect waves-light btn" id="request" href="/request">Add a transaction</a>
