@@ -14,7 +14,6 @@ class User extends Component {
     // e.g. localhost:3000/user/5d4755e1a4b1e79d03aee81b
     componentDidMount() {
         this.loadUser();
-        this.loadTrans();
     }
 
     loadUser = () => {
@@ -23,12 +22,6 @@ class User extends Component {
             .catch(err => console.log(err))
     }
 
-    loadTrans = () => {
-        API.getTransaction(this.props.match.params.id)
-            .then(res => console.log(res.data))
-            .catch(err => console.log(err));
-
-    }
 
     render() {
         return (

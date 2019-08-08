@@ -17,8 +17,8 @@ export default {
       return axios.delete("/api/users/" + id);
     },
     //Gets all transaction for a user
-    getTransactions: function() {
-      return axios.get("/api/transactions/");
+    getTransactions: function(id) {
+      return axios.get("/api/transactions/" + id);
     },
     // Gets the transaction referenced to user with the given id
     getTransaction: function(requestedBy) {

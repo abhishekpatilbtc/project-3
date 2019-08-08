@@ -35,9 +35,8 @@ router.post('/:id', (req, res) => {
 router.get('/:id', (req, res) => {
   const id = req.params.id
   User.findById(id)
-    .populate('transactionList')
+    .populate('transactionsList')
     .then(user => {
-
       // the user object would now have the transactionList property with all the transactions
       res.send({ user })
 

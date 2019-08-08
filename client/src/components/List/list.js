@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from "../../utils/API";
 const id = localStorage.getItem('User')
 
 
@@ -8,7 +9,15 @@ class List extends Component {
   }
 
   componentDidMount() {
-
+    console.log(id)
+    API.getTransactions(id)
+    .then(res => {
+        const transactions = res.data.user.transactionsList;
+        console.log(res.data)
+        console.log("---------")
+        console.log(res.data.user.transactionsList)
+        this.setState({transactions});
+    }).catch(err => console.log(err));
 
   }
 
