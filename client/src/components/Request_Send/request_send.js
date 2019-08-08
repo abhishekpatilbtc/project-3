@@ -39,30 +39,17 @@ class Request extends Component {
               </div><br />
 
               <div className="form-field" style={{borderBottom: '1px solid #9e9e9e'}}>
-                <label htmlFor="select">Choose a receiver</label>
+                <label htmlFor="select">Choose a friend</label>
 
                 <select style={{display: 'unset'}}
                   onChange = {( event ) => this.setState ({ receiver: event.target.textContent })}>
                   <option defaultValue />
-                  <option value={1}>Me</option>
-                  <option value={2}>Aunt Meredith</option>
-                  <option value={3}>Bob from work</option>
-                  <option value={4}>Uncle Anirudh</option>
-                  <option value={5}>Becky</option>
+                  <option value={1}>Aunt Meredith</option>
+                  <option value={2}>Bob from work</option>
+                  <option value={3}>Uncle Anirudh</option>
+                  <option value={4}>Becky</option>
                 </select>
                 
-              </div><br />
-
-              <div className="form-field" style={{borderBottom: '1px solid #9e9e9e'}}>
-                <label htmlFor="select">Choose a sender</label>
-                <select style={{display: 'unset'}}>
-                  <option defaultValue />
-                  <option value={1}>Me</option>
-                  <option value={2}>Aunt Meredith</option>
-                  <option value={3}>Bob from work</option>
-                  <option value={4}>Uncle Anirudh</option>
-                  <option value={5}>Becky</option>
-                </select>
               </div><br />
 
               <div className="form-field">
@@ -71,7 +58,8 @@ class Request extends Component {
               </div><br />
 
               <button className="waves-effect waves-light btn"
-                onClick = {(event) => this.handleClick(event)}>Add</button>
+                onClick = {(event) => this.handleClick(event)}>Log a transaction
+              </button>
 
             </div>
           </div>
