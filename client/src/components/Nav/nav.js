@@ -5,14 +5,14 @@ import "./nav.css";
 class Nav extends Component {
     constructor (props) {
         super(props);
-        this.handleLoginClick = this.handleLoginClick.bind(this);
+        // this.handleLoginClick = this.handleLoginClick.bind(this);
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
         this.state = {}
     }
 
-    handleLoginClick() {
+    // handleLoginClick() {
     
-    }
+    // }
 
     handleLogoutClick() {
     // logout this will clear storage or cookie
