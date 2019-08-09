@@ -34,7 +34,7 @@ class Nav extends Component {
             </ul>
         :
             <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li> <a href='/login' id="login">Log in</a></li>
+                <li> <a href="/login" id="login">Log in</a></li>
                 <a className="waves-effect waves-light btn" id="signup" href="/signup">Sign Up</a>
             </ul>}
 
