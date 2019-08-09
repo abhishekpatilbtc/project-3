@@ -12,7 +12,6 @@ class Nav extends Component {
     }
 
     handleLoginClick() {
-        console.log("Logging In")
     
     }
 
