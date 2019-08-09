@@ -1,18 +1,19 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
 import "./nav.css";
 
 class Nav extends Component {
     constructor (props) {
         super(props);
-        // this.handleLoginClick = this.handleLoginClick.bind(this);
+        this.handleLoginClick = this.handleLoginClick.bind(this);
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
-        this.state = {}
+        this.state = {redirectTo: null}
     }
 
-    // handleLoginClick() {
+    handleLoginClick() {
     
-    // }
+    }
 
     handleLogoutClick() {
     // logout this will clear storage or cookie
@@ -34,8 +35,7 @@ class Nav extends Component {
             </ul>
         :
             <ul id="nav-mobile" className="right hide-on-med-and-down">
-                {/* <li> <a href="/login" id="login">Log in</a></li> */}
-                <a className="waves-effect waves-light btn" id="signup" href="/login">Log In</a>
+                <li> <a href="/login" id="login" onClick={this.setState({redirectTo:"/login"})} >Log in</a></li>
                 <a className="waves-effect waves-light btn" id="signup" href="/signup">Sign Up</a>
             </ul>}
 
