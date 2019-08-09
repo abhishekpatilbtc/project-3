@@ -266,6 +266,8 @@ router.get('/logout', function (req, res) {
     // req.flash('success_msg', 'You are logged out');
 });
 
-
+router.use(function(req, res) {
+    res.sendFile(path.join(__dirname, "../client/public/index.html"));
+  });
 
 module.exports = router;
