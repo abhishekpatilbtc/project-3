@@ -7,7 +7,7 @@ Alla Akiyeva
 
 
 # Project Description
-The Goodwill is your innovative personal and peer-to-peer money exchangethat simplifies your lending and borrowing while keep you profitable. It allows you to easily lend money with interest or borrow from crowd at your conditions. It lets you dictate and negotiate the terms of the exchange instead of paying high interest to banks.
+Equity is your innovative personal and peer-to-peer money exchangethat simplifies your lending and keep records of your transactions.
 
 # Rough Breakdown of Tasks
 
