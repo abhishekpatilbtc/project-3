@@ -39,6 +39,10 @@ if (process.env.NODE_ENV === "production") {
 // Flash
 app.use(flash());
 
+
+///
+app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'client/build')));
+
 // Global
 app.use(function (req, res, next) {
   res.locals.success_msg = req.flash('success_msg');
