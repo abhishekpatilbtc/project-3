@@ -47,7 +47,7 @@ router.post('/:id', (req, res) => {
             .then(user => {
               user.transactionsList.push(transaction)
               user.save()
-            })
+            }).catch(err => console.log(err))
             user.save().then(res.send({ message: 'Transaction added successfully!' }))
         });
     }).catch((err) => {

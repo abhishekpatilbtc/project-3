@@ -6,14 +6,6 @@ const id = localStorage.getItem('User');
 var friendsArray = [];
 
 
-API.getFriends(id)
-  .then(res => {
-    for (var i = 0; i < res.data.user.friendsList.length; i++) {
-      // friendsArray.push(res.data.user.friendsList[i].username)
-      friendsArray.push(res.data.user.friendsList[i])
-    }
-  }).catch(err => console.log(err));
-
 console.log("---------")
 console.log(friendsArray)
 console.log("---------")
@@ -53,6 +45,16 @@ class Request extends Component {
     }
   }
 
+  componentDidMount() {
+  API.getFriends(id)
+  .then(res => {
+    for (var i = 0; i < res.data.user.friendsList.length; i++) {
+      // friendsArray.push(res.data.user.friendsList[i].username)
+      friendsArray.push(res.data.user.friendsList[i])
+    }
+  }).catch(err => console.log(err));
+  }
+
   //////////
   onChange = (event, { newValue }) => {
     this.setState({
@@ -80,10 +82,10 @@ class Request extends Component {
   handleClick = event => {
     const payload = {
       userId: localStorage.getItem('User'),
-      username: this.state.username,
+      username: this.state.value,
       amount: this.state.amount
     }
-
+    console.log("Request: " + payload.username)
     // let id = this.state.userId
     axios.post('/api/transactions/'+ payload.userId, payload)
     .then((res) => {
@@ -98,7 +100,7 @@ class Request extends Component {
 
 
   render(friends) {
-
+    console.log(this.state)
     const { value, suggestions } = this.state;
 
     // Autosuggest will pass through all these props to the input.
