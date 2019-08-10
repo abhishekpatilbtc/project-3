@@ -44,7 +44,7 @@ class Users_List extends Component {
                             <div className="card-stacked">
                                 <div className="card-content">
                                     <h5>{user.first} {user.last}</h5>
-                                    <p>{user.email}</p>
+                                    <p>@{user.username}</p>
                                 </div>
                                 <div className="card-action">
                                     <button className="waves-effect waves-light btn" 

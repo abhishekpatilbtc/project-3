@@ -36,7 +36,7 @@ class Friends extends Component {
                                 <div className="card-stacked">
                                     <div className="card-content">
                                         <h5>{friend.first} {friend.last}</h5>
-                                        <p>{friend.email}</p>
+                                        <p>@{friend.username}</p>
                                     </div>
                                 </div>
                             </div>
