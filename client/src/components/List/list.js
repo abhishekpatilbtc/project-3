@@ -29,7 +29,7 @@ class List extends Component {
               .then(res => {
                 const first = res.data.first;
                 const last = res.data.last;
-                console.log("Name:"+ res.data.first+" "+res.data.last )
+                console.log("Friend:"+ res.data.first+" "+res.data.last )
                 
               }).catch(err => console.log(err)),
             <li className="collection-item avatar" key={i}>
