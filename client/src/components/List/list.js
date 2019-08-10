@@ -34,7 +34,7 @@ class List extends Component {
               }).catch(err => console.log(err)),
             <li className="collection-item avatar" key={i}>
               <i className="material-icons circle">account_circle</i>
-              <p>Friend: {transaction.userId}</p>
+              {/* <p>Friend: {transaction.userId}</p> */}
               <p>Amout: ${transaction.amount}</p>
               <p>Date: <Moment local format="MM/DD/YYYY">{transaction.date}</Moment></p>
               <p>Transaction ID: {transaction._id}</p>
