@@ -15,7 +15,7 @@ class List extends Component {
     API.getTransactions(id)
       .then(res => {
         const transactions = res.data.user.transactionsList;
-        console.log("18", res.data.user.transactionsList)
+        console.log("1st API response:", res.data.user.transactionsList)
         this.setState({ transactions });
       }).catch(err => console.log(err))
   }
@@ -28,12 +28,12 @@ class List extends Component {
               .then(res => {
                 const name  = res.data.first + " " + res.data.last;
                 this.state.friends.push(name);
-                console.log("Friend:"+ res.data.first+" "+res.data.last )
+                console.log(i +"Friend:"+ res.data.first+" "+res.data.last )
                 
               }).catch(err => console.log(err)),
               <li className="collection-item avatar" key={i}>
                 <i className="material-icons circle">account_circle</i>
-                <p>Friend: {this.state.friends[i]}</p>
+                {/* <p>Friend: {this.state.friends[i]}</p> */}
                 <p>Amout: ${transaction.amount}</p>
                 <p>Date: <Moment local format="MM/DD/YYYY">{transaction.date}</Moment></p>
                 <p>Transaction ID: {transaction._id}</p>
