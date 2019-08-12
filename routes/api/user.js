@@ -9,19 +9,7 @@ router.route("/")
 router.route("/:id")
     .get(userController.findById)
 
-// router.post('/:id/:friendid', (req, res) => {
-//     const id = req.params.id
-//     const friendid = req.params.friendid
-//     console.log("user is:" + id)
-//     console.log("friend is:" + friendid)
-//     User.findById(id)
-//         .then(user => {
-//             user.friendsList.push(friendid);
-//             user.save().then(res.send({message: 'Friend added successfully!'}))
-//         }).catch((err) => {
-//             console.log(err)
-//         });
-// });
+
 
 router.post('/addfriend', (req, res) => {
 
@@ -53,50 +41,6 @@ router.post('/addfriend', (req, res) => {
         })
 
 
-
-    // User.findById(id)
-    //     .then(user => {
-
-    // const friends = user.friendsList;
-    // let isAvailable = false
-    // console.log("36", user)
-    // console.log("37", friends)
-    // friends.forEach(e => {
-    //     console.log("39", e)
-    // })
-
-
-    // console.log("40", friendid == friendsIds[0])
-    // console.log("41", friends.indexOf(friendid)) // this does not make sense
-    // console.log(typeof(friendid), typeof(friends[0]));
-
-    // if (friends.indexOf(friendid) !== -1 ) {
-    //     console.log("exists");
-    //     res.json({
-    //         "message": "this friend already exists"
-    //     })
-
-    // } else {
-    //     console.log("does not exist")
-    //     user.friendsList.push(friendid);
-    //     user.save().then(res.send({message: 'Friend added successfully!'}))
-    // }
-
-    // user.friendsList.push(friendid);
-    // user.save().then(res.send({message: 'Friend added successfully!'}))
-
-    // console.log(user);
-    // console.log(friends)
-
-
-    // }).catch((err) => {
-    //     console.log(err)
-    // });
-
-    // console.log(req.body)
-    // res.json({
-    //     "hi": "hi"
-    // })
 });
 
 router.get('/listfriends/:id', (req, res) => {
