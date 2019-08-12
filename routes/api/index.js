@@ -26,7 +26,5 @@ router.get('/search', function (req, res) {
     });
 });
 
-//Authentication
-// router.use("/authentication", authenticationRoutes);
 
 module.exports = router;
