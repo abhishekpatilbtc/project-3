@@ -1,15 +1,12 @@
 const express = require('express');
 const app = express();
 const path = require("path");
-const formidable = require('formidable');
 const router = require("express").Router();
 const apiRoutes = require("./api");
 const User = require('../models/user');
-const async = require('async');
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy;
-var { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
-const bcrypt = require('bcryptjs');
+
 
 // Initialize Passport and restore authentication state
 
