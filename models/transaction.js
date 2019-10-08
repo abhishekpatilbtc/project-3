@@ -5,7 +5,6 @@ const Schema = mongoose.Schema;
   receiver: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-
   },
   sender: {
     type: mongoose.Schema.Types.ObjectId,

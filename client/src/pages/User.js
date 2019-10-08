@@ -31,7 +31,8 @@ class User extends Component {
                     last_name={this.state.user.last}
                     image={this.state.user.image}
                 />
-                <List />
+                <List 
+                />
             </div>
         );
     }

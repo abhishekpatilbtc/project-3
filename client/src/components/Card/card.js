@@ -7,9 +7,11 @@ function Card(props) {
             <div className="card horizontal">
                 
                 <div className="card-image">
-                    
-                    <img src={props.image} alt="avatar" style={{borderRadius: '50%', height: '150px', width: '150px'}} />
-                    <a className="btn-floating btn-small waves-effect waves-light red" href="/add"><i className="material-icons">add</i></a>
+                    { props.image ? 
+                    <img src={props.image} alt="avatar" style={{borderRadius: '50%', height: '150px', width: '150px', objectFit: 'cover'}} />
+                    :
+                    <img src={require("./image-1.png")} alt="avatar" style={{borderRadius: '50%', height: '150px', width: '150px'}} />}
+
                 </div>
                 <div className="card-stacked">
                     <div className="card-content">

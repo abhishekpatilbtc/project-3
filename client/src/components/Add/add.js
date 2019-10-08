@@ -27,16 +27,16 @@ class Add extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container" style={{width: '50%'}}>
         <div className="card">
           <div className="card-content">
             <div className="card-action teal lighten-1 white-text" style={{ paddingTop: '0', paddingBottom: '5px' }}>
-              <h4>Update Profile Picture</h4>
+              <h6>Update Profile Picture</h6>
             </div><br />
 
 
             <div className="row">
-              <form className="col s12">
+              <form className="col s12" style={{height: '80px'}}>
                 <div className="row">
                 <div className="form-field">
                 <label htmlFor="username">Image Upload</label>
@@ -49,10 +49,10 @@ class Add extends Component {
 
 
             <div className="form-field">
-              <button className="btn-large waves-effect waves-dark"
+              <button className="btn waves-effect waves-dark"
                 style={{ width: '100%' }}
                 onClick={(event) => this.handleClick(event)}>
-                Attach an URL
+                Attach a URL
               </button>
             </div><br />
 

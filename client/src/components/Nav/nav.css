@@ -5,7 +5,10 @@ nav {
 }
 
 body {
-    background-image: url("./dynamic-style.png")
+    background-image: url("./creampaper.png");
+    /* background-image: url("./beige-tiles.png"); */
+    /* background-color: #d7ccc8; */
+   
 }
 
 #login {
@@ -14,7 +17,6 @@ body {
 }
 
 nav .brand-logo {
-    /* color: #7cb342; */
     color: #f57c00;
     font-weight: bold;
 }

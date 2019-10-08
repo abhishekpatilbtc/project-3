@@ -5,11 +5,6 @@ import axios from "axios";
 const id = localStorage.getItem('User');
 var friendsArray = [];
 
-
-console.log("---------")
-console.log(friendsArray)
-console.log("---------")
-
 //  how to calculate suggestions for any given input value.
 const getSuggestions = value => {
 
@@ -41,18 +36,20 @@ class Request extends Component {
       suggestions: [],
       userId: '',
       username: '',
-      amount: ''
+      amount: '',
+      receiver: '',
+      sender: ''
     }
   }
 
   componentDidMount() {
-  API.getFriends(id)
-  .then(res => {
-    for (var i = 0; i < res.data.user.friendsList.length; i++) {
-      // friendsArray.push(res.data.user.friendsList[i].username)
-      friendsArray.push(res.data.user.friendsList[i])
-    }
-  }).catch(err => console.log(err));
+    API.getFriends(id)
+      .then(res => {
+        for (var i = 0; i < res.data.user.friendsList.length; i++) {
+          // friendsArray.push(res.data.user.friendsList[i].username)
+          friendsArray.push(res.data.user.friendsList[i])
+        }
+      }).catch(err => console.log(err));
   }
 
   //////////
@@ -64,7 +61,7 @@ class Request extends Component {
 
   // Autosuggest will call this function every time you need to update suggestions.
   // You already implemented this logic above, so just use it.
- 
+
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
       username: value,
@@ -83,24 +80,23 @@ class Request extends Component {
     const payload = {
       userId: localStorage.getItem('User'),
       username: this.state.value,
-      amount: this.state.amount
+      amount: this.state.amount,
+      sender: localStorage.getItem('User'),
+      // receiver: this.state.receiver
     }
-    console.log("Request: " + payload.username)
     // let id = this.state.userId
-    axios.post('/api/transactions/'+ payload.userId, payload)
-    .then((res) => {
-      console.log(res);
-      // redirect to home (user) page
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    axios.post('/api/transactions/' + payload.userId, payload)
+      .then((res) => {
+        // redirect to home (user) page
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
 
 
   render(friends) {
-    console.log(this.state)
     const { value, suggestions } = this.state;
 
     // Autosuggest will pass through all these props to the input.
@@ -129,23 +125,13 @@ class Request extends Component {
                   getSuggestionValue={getSuggestionValue}
                   renderSuggestion={renderSuggestion}
                   inputProps={inputProps}
-                  onChange = {(event) => this.setState ({ username: event.target.value })}
+                  onChange={(event) => this.setState({ username: event.target.value })}
                 />
               </div><br />
-
-              {/* <div className="form-field">
-                <label htmlFor="sum">Choose a friend</label>
-                <input type="text" id="friend" 
-                  
-                  onChange = {(event) => this.setState ({ username: event.target.value })}/>
-              </div><br />
-              <Autocomplete suggestions ={friends} />
-              </div> */}
-
               <div className="form-field">
                 <label htmlFor="sum">Amount</label>
-                <input type="number" id="sum" 
-                  onChange = {(event) => this.setState ({ amount: event.target.value })}/>
+                <input type="number" id="sum"
+                  onChange={(event) => this.setState({ amount: event.target.value })} />
               </div><br />
 
               <button className="waves-effect waves-light btn"
