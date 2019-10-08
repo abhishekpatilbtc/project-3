@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 
   const transactionSchema = new Schema({
   receiver: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.String, // this used to be ObjectID
     ref: 'User',
   },
   sender: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.String, // this used to be ObjectID
     ref: 'User',
   },
   description: String,
