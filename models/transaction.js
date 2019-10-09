@@ -15,6 +15,7 @@ const Schema = mongoose.Schema;
   amount: { type: Number, required: true },
   userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   interest: { type: Number },
+  image: String,
   comments: [{
     text: String,
     date: Date,

@@ -10,15 +10,16 @@ router.post('/:id', (req, res) => {
   const id = req.params.id
   User.findById(id)
     .then(user => {
-      Transaction.create({ ...req.body, userId: user._id, sender: user.username })
+      Transaction.create({ ...req.body, userId: user._id, sender: `${user.first} ${user.last}` })
         .then(transaction => {
           user.transactionsList.push(transaction);
           User.findOne({ username: req.body.username })
             .then(user => {
               user.transactionsList.push(transaction)
               user.save()
+              console.log("this one here", user.image);
               Transaction.updateOne(
-                { _id: transaction._id }, { $set: { receiver: user.username } },{ upsert: true }
+                { _id: transaction._id }, { $set: { receiver: `${user.first} ${user.last}`, image: user.image} },{ upsert: true }
               ).catch(err => console.log(err))
             }).catch(err => console.log(err))
           user.save().then(res.send({ message: 'Transaction added successfully!' }))
