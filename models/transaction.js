@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 
   const transactionSchema = new Schema({
   receiver: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.String, // this used to be ObjectID
     ref: 'User',
   },
   sender: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.String, // this used to be ObjectID
     ref: 'User',
   },
   description: String,
@@ -15,6 +15,7 @@ const Schema = mongoose.Schema;
   amount: { type: Number, required: true },
   userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   interest: { type: Number },
+  image: String,
   comments: [{
     text: String,
     date: Date,

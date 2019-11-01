@@ -45,7 +45,8 @@ class List extends Component {
             //   }).catch(err => console.log(err)),
 
             <li className="collection-item avatar" key={i}>
-              <i className="material-icons circle">account_circle</i>
+              <img src={transaction.image} alt="" className="circle"></img>
+              {/* <i className="material-icons circle" src={transaction.image}>account_circle</i> */}
               <p>Sender: {transaction.sender}</p>
               <p>Receiver: {transaction.receiver}</p>
               <p>Amount: ${transaction.amount}</p>
